@@ -1,0 +1,69 @@
+{% extends "form_base.html" %}
+
+{% block content %}
+<div class="column is-4 is-offset-4">
+    <h3 class="title">Update Timesheet</h3>
+    <div class="box">
+        <form method="POST" action="/timeEntry">
+            <div class="field">
+                <div class="control">
+                    <span class="badge rounded-pill bg-dark">Time Entry</span>
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <span class="badge rounded-pill bg-dark">StartDate</span>
+                    <input class="input is-large" type="date" name="startdate" placeholder="Startdate" autofocus="">
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <span class="badge rounded-pill bg-dark">EndDate</span>
+                    <input class="input is-large" type="date" name="enddate" placeholder="Enddate">
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <span class="badge rounded-pill bg-dark">Hours/day Spent</span>
+                    <input class="input is-large" type="number" name="hours_spent" placeholder="hrs/day">
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <span class="badge rounded-pill bg-dark">Type Of Work</span>
+                    <select name="typeofwork" class="input is-large">
+                        <option value="" disabled selected>Select your option</option>
+                        {% for o in typeofwork %}
+                        <option value="{{ o.type }}">{{ o.type }}</option>
+                        {% endfor %}
+                  </select>
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <span class="badge rounded-pill bg-dark">Type of involvement</span>
+                    <select name="involvement" class="input is-large">
+                        <option value="" disabled selected>Select your option</option>
+                        {% for o in involvement %}
+                        <option value="{{ o.involvement }}">{{ o.involvement }}</option>
+                        {% endfor %}
+                  </select>
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <span class="badge rounded-pill bg-dark">Project Name</span>
+                    <input class="input is-large" type="text" name="project" placeholder="pepsico, coke, Walmart etc">
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <span class="badge rounded-pill bg-dark">Work delivered to</span>
+                    <input class="input is-large" type="text" name="owner" placeholder="Project owner name">
+                </div>
+            </div>
+            <button class="button is-block is-info is-large is-fullwidth">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "table_base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Time Entry Record</h1>
+  <table id="data" class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>startdate</th>
+        <th>enddate</th>
+        <th>hours_spent</th>
+        <th>involvement</th>
+        <th>typeofwork</th>
+        <th>project</th>
+        <th>owner</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for record in timeentry %}
+        <tr>
+          <td>{{ record.name }}</td>
+          <td>{{ record.email }}</td>
+          <td>{{ record.startdate }}</td>
+          <td>{{ record.enddate }}</td>
+          <td>{{ record.hours_spent }}</td>
+          <td>{{ record.involvement }}</td>
+          <td>{{ record.typeofwork }}</td>
+          <td>{{ record.project }}</td>
+          <td>{{ record.owner }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

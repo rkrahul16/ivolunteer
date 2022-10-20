@@ -1,0 +1,7 @@
+flask
+flask-sqlalchemy
+Flask-Migrate
+flask-login
+flask_script
+werkzeug
+pandas
