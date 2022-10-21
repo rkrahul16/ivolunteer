@@ -3,7 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>iVolunteer-SCM</title>
+    <title>iVolunteer</title>
     <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
@@ -20,23 +20,21 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
         <div class="container px-5">
-            <a class="navbar-brand" href="#page-top">iVolunteer SCM-Practice</a>
+            <!-- <a class="navbar-brand"><img class="img-cicrle" src="static/assets/img/ivolunteer.PNG">iVolunteer</a> -->
+            <a class="navbar-brand">iVolunteer</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
                     class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="text-white">Welcome {{name}}</a></li>
+                    <li class="nav-item"><a class="nav-link">Welcome {{name}}</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url_for('auth.logout') }}">logout</a></li>
                 </ul>
             </div>
         </div>
     </nav>
     <!-- Header-->
-    <header class="masthead" style="width: 1600; height: 100px">
-        <div class="bg-circle-1 bg-circle"></div>
-        <div class="bg-circle-2 bg-circle "></div>
-    </header>
+    <header class="text-white" style="width: 1500; height: 100px"> </header>
     <!-- Content section 1-->
     <section id="scroll">
         <div class="container px-2">
@@ -47,7 +45,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 order-lg-1">
-                    <div class="text-center">
+                    <div class="text-left">
                         <h3 class="display-6">My Availability and interest</h3>
                     </div>
                 </div>
@@ -64,7 +62,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 order-lg-1">
-                    <div class="text-center">
+                    <div class="text-left">
                         <h3 class="display-6">Update working hours</h3>
                     </div>
                 </div>
@@ -79,7 +77,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 order-lg-1">
-                    <div class="text-center">
+                    <div class="text-left">
                         <h3 class="display-6">Available Resources</h3>
                     </div>
                 </div>
@@ -94,7 +92,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 order-lg-1">
-                    <div class="text-center">
+                    <div class="text-left">
                         <h3 class="display-6">Generate Report</h3>
                     </div>
                 </div>
@@ -103,7 +101,7 @@
     <!-- Footer-->
     <footer class="py-5 bg-black">
         <div class="container px-5">
-            <p class="m-0 text-center text-white small">Copyright &copy; Tredence 2022</p>
+            <p class="m-0 text-center text-white medium">Copyright &copy; Tredence 2022</p>
         </div>
     </footer>
     <!-- Bootstrap core JS-->

@@ -10,6 +10,7 @@ class User(UserMixin, db.Model):
 
 class availableform(db.Model):
     id = db.Column(db.Integer, primary_key=True) # primary keys are required by SQLAlchemy
+    name = db.Column(db.String(100))
     email = db.Column(db.String(100), unique=True)
     startdate = db.Column(db.Date)
     enddate = db.Column(db.Date)

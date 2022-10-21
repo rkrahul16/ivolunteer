@@ -26,14 +26,14 @@
             <div class="field">
                 <div class="control">
                     <span class="badge rounded-pill bg-dark">Interests/Skills</span>
-                    <input class="input is-large" type="text" name="interest" placeholder="PPT, Excel, Coding.. etc">
+                    <input class="input is-large" type="text" name="interest" placeholder="planning, Optimization, Dashboards..etc">
                 </div>
             </div>
             <div class="field">
                 <div class="control">
                     <span class="badge rounded-pill bg-dark">Type Of Work</span>
                     <select name="typeofwork" class="input is-large">
-                        <option value="" disabled selected>Select your option</option>
+                        <option value="" disabled selected>-Select-</option>
                         {% for o in typeofwork %}
                         <option value="{{ o.type }}">{{ o.type }}</option>
                         {% endfor %}
@@ -44,7 +44,7 @@
                 <div class="control">
                     <span class="badge rounded-pill bg-dark">Type of involvement</span>
                     <select name="involvement" class="input is-large">
-                        <option value="" disabled selected>Select your option</option>
+                        <option value="" disabled selected>-Select-</option>
                         {% for o in involvement %}
                         <option value="{{ o.involvement }}">{{ o.involvement }}</option>
                         {% endfor %}
