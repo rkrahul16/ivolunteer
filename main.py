@@ -1,9 +1,10 @@
-from flask import Blueprint, render_template, flash, request, url_for, redirect
+from flask import Blueprint, render_template, flash, request, url_for, redirect, Response
 from flask_login import login_required, current_user
 from models import availableform, User, timeentryform
 from app import create_app, db
 from datetime import datetime
 from sqlalchemy import and_, or_, func
+import csv
 
 data1=[{'type': 'POV'}, {'type': 'RFP'}, {'type': 'Hiring'}, {'type': 'Accelerator'}, 
             {'type': 'Knowledge Sharing'}, {'type': 'Team Building Activities'}, 
@@ -101,6 +102,30 @@ def resources():
         #filter((enddate - availableform.startdate) > 0)
         avail_resource = db.session.query(availableform).filter(and_(availableform.startdate >= startdate, availableform.startdate <= enddate)).all()
         return render_template('availableResourceList.html', avail_resource=avail_resource)
+@main.route("/getCSV")
+@login_required
+def getCSV():
+    header = ['Name', 'Email', 'startdate', 'enddate', "hours_spent", "involvement", "typeofwork", "project", "owner"]
+    data_dict = {}
+    count = 1
+    csv_name = f"reports\{current_user.name}.csv"
+    with open(csv_name, 'w', encoding='UTF8', newline='') as f:
+        writer = csv.writer(f)
+        writer.writerow(header)
+        timeentry = timeentryform.query.filter_by(email = current_user.email).all()
+        for i in timeentry:
+            data = [i.name, i.email, i.startdate, i.enddate, i.hours_spent, i.involvement,
+                    i.typeofwork, i.project, i.owner]
+            data_dict.update({count: data})
+            count = count + 1
+        for i in range(1, count):
+            writer.writerow(data_dict[i])
+    with open(csv_name) as fp:
+         file = fp.read()
+    return Response(file,
+                    mimetype="text/csv",
+                    headers={"Content-disposition":
+                             f"attachment; filename=myresport.csv"})
 app = create_app() # we initialize our flask app using the __init__.py function
 if __name__ == '__main__': 
     with app.app_context():
