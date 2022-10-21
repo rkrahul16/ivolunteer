@@ -1,8 +1,12 @@
 {% extends "table_base.html" %}
 
 {% block content %}
+
 <div class="container">
     <h1>Time Entry Record</h1>
+    <div>
+      <a href="{{ url_for('main.getCSV') }}" download><span>Download</span><span>CSV</span></a>
+  </div>
   <table id="data" class="table table-striped">
     <thead>
       <tr>
