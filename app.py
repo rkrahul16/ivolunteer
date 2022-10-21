@@ -5,14 +5,14 @@ from flask_login import LoginManager
 
 # init SQLAlchemy so we can use it later in our models
 db = SQLAlchemy()
-# migrate = Migrate()
+migrate = Migrate()
 def create_app():
     app = Flask(__name__) # creates the Flask instance, __name__ is the name of the current Python module
     app.config['SECRET_KEY'] = 'witcher@1' # it is used by Flask and extensions to keep data safe
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite' #it is the path where the SQLite database file will be saved
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False # deactivate Flask-SQLAlchemy track modifications
     db.init_app(app) # Initialiaze sqlite database
-    # migrate.init_app(app,db)
+    migrate.init_app(app,db)
     # The login manager contains the code that lets your application and Flask-Login work together
     login_manager = LoginManager() # Create a Login Manager instance
     login_manager.login_view = 'auth.login' # define the redirection path when login required and we attempt to access without being logged in
